@@ -237,6 +237,11 @@
 						<enabled>true</enabled>
 					</snapshots>
 				</repository>
+				<repository>
+					<id>nexusRelease</id>
+					<name>Nexus Releases</name>
+					<url>https://peltzer.com.de/nexus/content/repositories/releases/</url>
+				</repository>
 			</repositories>
 			<pluginRepositories>
 				<pluginRepository>
