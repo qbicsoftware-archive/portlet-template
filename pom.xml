@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.qbic.life</groupId>
-	<artifactId>portlet</artifactId>
+	<groupId>life.qbic</groupId>
+	<artifactId>templateQbicPortlet</artifactId>
 	<version>1.0</version>
-	<name>portlet Portlet</name>
+	<name>templateQbicPortlet</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -236,6 +236,11 @@
 					<snapshots>
 						<enabled>true</enabled>
 					</snapshots>
+				</repository>
+				<repository>
+					<id>nexusRelease</id>
+					<name>Nexus Releases</name>
+					<url>https://peltzer.com.de/nexus/content/repositories/releases/</url>
 				</repository>
 			</repositories>
 			<pluginRepositories>
