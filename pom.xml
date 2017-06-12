@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>life.qbic</groupId>
-	<artifactId>templateQbicPortlet</artifactId>
+	<artifactId>qbic_portlet_template</artifactId>
 	<version>1.0</version>
-	<name>templateQbicPortlet</name>
+	<name>QBiC Portlet Template</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -105,6 +105,12 @@
 			<artifactId>util-java</artifactId>
 			<version>${liferay.version}</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
 		</dependency>
 	</dependencies>
 
