@@ -54,6 +54,20 @@
 		</dependencies>
 	</dependencyManagement>
 
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<url>https://peltzer.com.de/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>nexus-release</id>
+			<name>Nexus Releases</name>
+			<url>https://peltzer.com.de/nexus/content/repositories/releases/</url>
+		</repository>
+	</distributionManagement>
+
 	<dependencies>
 
 		<!-- Vaadin dependencies -->
@@ -128,6 +142,13 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.6</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>2.0.2</version>
 		</dependency>
 	</dependencies>
 
