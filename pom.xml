@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>life.qbic</groupId>
 	<artifactId>portlet-base</artifactId>
@@ -9,6 +9,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jetty.plugin.version>9.3.9.v20160517</jetty.plugin.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<vaadin.version>7.7.8</vaadin.version>
@@ -27,11 +28,32 @@
 			<url>http://maven.vaadin.com/vaadin-addons</url>
 		</repository>
 		<repository>
-			<id>nexusRelease</id>
+			<id>nexus-snap</id>
+			<name>qbic snapshots</name>
+			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-snapshots</url>
+		</repository>
+		<repository>
+			<id>nexus-release</id>
 			<name>qbic release</name>
-			<url>https://peltzer.com.de/nexus/content/repositories/releases</url>
+			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-releases</url>
 		</repository>
 	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>true</uniqueVersion>
+			<id>nexus-release</id>
+			<name>QBiC Releases</name>
+			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-releases</url>
+		</repository>
+		<snapshotRepository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>nexus-snap</id>
+			<name>QBiC Snapshots</name>
+			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-snapshots</url>
+		</snapshotRepository>
+
+	</distributionManagement>
 
 	<pluginRepositories>
 		<pluginRepository>
@@ -55,18 +77,6 @@
 	</dependencyManagement>
 
 
-	<distributionManagement>
-		<snapshotRepository>
-			<id>nexus-snapshots</id>
-			<url>https://peltzer.com.de/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-		<repository>
-			<uniqueVersion>false</uniqueVersion>
-			<id>nexus-release</id>
-			<name>Nexus Releases</name>
-			<url>https://peltzer.com.de/nexus/content/repositories/releases/</url>
-		</repository>
-	</distributionManagement>
 
 	<dependencies>
 
@@ -116,6 +126,7 @@
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>portal-service</artifactId>
 			<version>${liferay.version}</version>
+			<!-- compile for local testing - provided for portlet -->
 			<scope>provided</scope>
 		</dependency>
 
@@ -123,6 +134,7 @@
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>util-java</artifactId>
 			<version>${liferay.version}</version>
+			<!-- compile for local testing - provided for portlet -->
 			<scope>provided</scope>
 		</dependency>
 
@@ -165,6 +177,21 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.6</version>
 			</plugin>
+
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.1</version>
+				<executions>
+					<execution>
+						<id>default-deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 
 			<!-- As we are doing "inplace" GWT compilation, ensure the widgetset -->
 			<!-- directory is cleaned properly -->
@@ -237,6 +264,16 @@
 					<pluginType>portlet</pluginType>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${jetty.plugin.version}</version>
+				<configuration>
+					<scanIntervalSeconds>2</scanIntervalSeconds>
+				</configuration>
+			</plugin>
+
 		</plugins>
 
 		<pluginManagement>
