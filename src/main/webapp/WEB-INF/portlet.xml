@@ -8,14 +8,14 @@
 
 	<portlet>
 		<description>This is a template of a QBiC portlet</description>
-		<portlet-name>QBiC Portlet Template</portlet-name>
-		<display-name>QBiC Portlet Template</display-name>
+		<portlet-name>Portlet Template</portlet-name>
+		<display-name>Portlet Template</display-name>
 
 		<portlet-class>com.vaadin.server.VaadinPortlet</portlet-class>
 
 		<init-param>
 			<name>UI</name>
-			<value>com.qbic.life.MyPortletUI</value>
+			<value>life.qbic.MyPortletUI</value>
 		</init-param>
 
 		<init-param>
@@ -30,8 +30,8 @@
 
 
 		<portlet-info>
-			<title>QBiC Portlet Template</title>
-			<short-title>QBiC Portlet Template</short-title>
+			<title>Portlet Template</title>
+			<short-title>Portlet Template</short-title>
 			<keywords>Vaadin 7</keywords>
 		</portlet-info>
 
