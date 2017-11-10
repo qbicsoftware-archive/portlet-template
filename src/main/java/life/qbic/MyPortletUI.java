@@ -28,29 +28,29 @@ public class MyPortletUI extends UI {
 
     @Override
     protected void init(VaadinRequest request) {
-        final String portletContextName = getPortletContextName(request);
-        final Integer numOfRegisteredUsers = getPortalCountOfRegisteredUsers();
         final VerticalLayout layout = new VerticalLayout();
         layout.setMargin(true);
         setContent(layout);
 
         String userID = "MISSING SCREENNAME";
+        Label label;
         if (LiferayAndVaadinUtils.isLiferayPortlet()) {
+            String portletContextName = getPortletContextName(request);
+            Integer numOfRegisteredUsers = getPortalCountOfRegisteredUsers();
             userID = LiferayAndVaadinUtils.getUser().getScreenName();
+            label = new Label(
+                    "Hello, " + userID + "!<br>This is portlet "
+                            + portletContextName
+                            + ".<br>This portal has "
+                            + numOfRegisteredUsers
+                            + " registered users (according to the data returned by Liferay API call).",
+                    ContentMode.HTML);
+        } else {
+            label = new Label("You are currently in a local testing mode. No Liferay Portlet context found.");
         }
-        Label label = new Label(
-                "Hello, " + userID + "!<br>This is portlet "
-                        + portletContextName
-                        + ".<br>This portal has "
-                        + numOfRegisteredUsers
-                        + " registered users (according to the data returned by Liferay API call).",
-                ContentMode.HTML);
+
         final Button button = new Button("Click Me");
-        button.addClickListener(new Button.ClickListener() {
-            public void buttonClick(ClickEvent event) {
-                layout.addComponent(label);
-            }
-        });
+        button.addClickListener((Button.ClickListener) event -> layout.addComponent(label));
         layout.addComponent(button);
     }
 
