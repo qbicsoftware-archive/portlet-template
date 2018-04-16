@@ -3,6 +3,6 @@
 
 <display>
 	<category name="Portlets">
-		<portlet id="Portlet Template" />
+		<portlet id="{{ cookiecutter.portlet_id }}" />
 	</category>
 </display>

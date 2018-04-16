@@ -1,16 +1,9 @@
 # template_qbicportlet
-This repository provides a [cookiecutter template][cookiecutter] for a basic QBiC Liferay Vaadin Portlet based on Maven.
+This repository provides a template for a QBiC Liferay Vaadin Portlet based on Maven.
 
 ## How to use the template?
 
 ### STEP 1 - Create a new repository on GitHub
-Download and familiarize yourself with [cookiecutter templates][cookiecutter]. Once it has been properly installed, you need to execute the following command:
-
-```sh
-cookiecutter https://github.com/qbicsoftware/template_qbicportlet
-```
-
-This will download 
 Create a new repository on Github. You can find a description of it [here](https://help.github.com/articles/create-a-repo/). 
 
 ### STEP 2 - Mirror the template to your new repo
@@ -92,5 +85,3 @@ author=$AUTHOR
 ```
 
 ### Start coding and enjoy your custom vaadin portlet :)
-
-[cookiecutter]: https://cookiecutter.readthedocs.io
