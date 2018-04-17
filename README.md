@@ -25,11 +25,13 @@ You will first notice that you are prompted to enter some values, as seen here:
 
 ```sh
 author [Winnie the Pooh]: Homer Simpson
+email [pooh@qbic.uni-tuebingen.de]: simpson@burns.com
 portlet_id [helloworld-portlet]: donut-portlet
-display_name [HelloWorld Portlet!]: Donut Portlet
+display_name [HelloWorld Portlet]: Donut Portlet
 version [0.0.1-SNAPSHOT]: 
 short_description [Simple portlet]: Mmm donuts
 main_ui [QBiCPortletUI]: DonutPortletUI
+copyright_holder [QBiC]: Mr. Burns
 ```
 
 The values shown between brackets are the defaults. To use the default value (as Homer did here for `version`), simply press `ENTER` without entering any other text. Default values are provided in the `cookiecutter.json` file.

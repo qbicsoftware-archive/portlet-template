@@ -1,8 +1,10 @@
 {
     "author": "Winnie the Pooh",
+    "email": "pooh@qbic.uni-tuebingen.de",
     "portlet_id": "helloworld-portlet",
-    "display_name": "HelloWorld Portlet!",
+    "display_name": "HelloWorld Portlet",
     "version": "0.0.1-SNAPSHOT",
     "short_description": "Simple 'Hello World' QBiC Vaadin portlet.",
-    "main_ui": "QBiCPortletUI"
+    "main_ui": "QBiCPortletUI",
+    "copyright_holder": "QBiC"
 }
