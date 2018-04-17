@@ -18,7 +18,7 @@ Other than that, you will also need writing access to the [QBiC Software GitHub 
 Open a terminal and execute the following command:
 
 ```sh
-$ cookiecutter https://github.com/qbicsoftware/template_qbicportlet
+cookiecutter https://github.com/qbicsoftware/template_qbicportlet
 ```
 
 You will first notice that you are prompted to enter some values, as seen here:
@@ -76,7 +76,7 @@ donut-portlet/
 Go to the generated folder (i.e., `donut-portlet` in our case) and execute the following _maven_ command in a terminal (or using your IDE of choice), like so:
 
 ```sh
-$ mvn jetty:run
+mvn jetty:run
 ```
 You should see an output similar to:
 
@@ -94,11 +94,11 @@ At this point you have a simple QBiC portlet with all the required dependencies.
 Once your remote repository has been created, make sure you are in the generated folder (i.e., `donut-portlet`) and execute the following commands:
 
 ```sh
-$ git init
-$ git add .
-$ git commit -m "Initial commit after template configuration"
-$ git remote add origin https://github.com/qbicsoftware/donut-portlet
-$ git push origin master
+git init
+git add .
+git commit -m "Initial commit after template configuration"
+git remote add origin https://github.com/qbicsoftware/donut-portlet
+git push origin master
 ``` 
 
 You can start using your repository containing your brand new portlet.
