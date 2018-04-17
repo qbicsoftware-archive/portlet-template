@@ -34,9 +34,9 @@ main_ui [QBiCPortletUI]: DonutPortletUI
 
 The values shown between brackets are the defaults. To use the default value (as Homer did here for `version`), simply press `ENTER` without entering any other text. Default values are provided in the `cookiecutter.json` file.
 
-Without getting too much into details, cookiecutter will generate a folder which you can immediately use for portlet development. References to cookiecutter variables (e.g., ``{{ cookiecutter.version }}`` will be properly substituted. The name of the generated folder is determined by the value of the ``{{ cookiecutter.portlet_id }}`` variable (i.e., ``donut-portlet`` in our example). This will be generated on the same folder on which you executed the ``cookiecutter`` command. 
+Without getting too much into details, cookiecutter will generate a folder which you can immediately use for portlet development. References to cookiecutter variables (e.g., ``{{ cookiecutter.version }}``) will be properly substituted. The name of the generated folder is determined by the value of the ``{{ cookiecutter.portlet_id }}`` variable (i.e., ``donut-portlet`` in our example). This will be generated on the same folder on which you executed the ``cookiecutter`` command. 
 
-You should see a folder structure similar to:
+Cookiecutter will create a folder folder with the following structure and contents:
 
 ```
 donut-portlet/
@@ -86,10 +86,10 @@ You should see an output similar to:
 [INFO] Started Jetty Server
 ```
 
-Direct your browser to http://localhost:8080. You should see a button, and after clicking it, it should display some information about your portlet. So far so good, congratulations!
+Direct your browser to http://localhost:8080. If everything went fine, you will see a button, and after clicking it, it should display some information about your portlet. So far so good, congratulations!
 
 ### STEP 3 - Create a new repository for your new portlet.
-At this point you have a simple QBiC portlet with all the required dependencies, you need to create a remote repository for it, so it's available for everyone. Follow [this guide](https://help.github.com/articles/create-a-repo/) to create a remote repository on GitHub. For this example, we will still use `donut-portlet` as the name of our repository.
+At this point you have a simple QBiC portlet with all the required dependencies. You now need to create a remote repository for it, so it's available for everyone. Follow [this guide](https://help.github.com/articles/create-a-repo/) to create a remote repository on GitHub. For this example, we will still use `donut-portlet` as the name of our repository.
 
 Once your remote repository has been created, make sure you are in the generated folder (i.e., `donut-portlet`) and execute the following commands:
 
