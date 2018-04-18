@@ -1,20 +1,23 @@
 # template_qbicportlet
+
 This repository provides a [cookiecutter template][cookiecutter] for a basic QBiC Liferay Vaadin Portlet based on Maven.
 
 Whenever you start a new portlet in QBiC, you can use this template to generate a folder containing all of the needed files for portlet development.
 
 ## Requirements
+
 You will need the following tools:
 
-  * [Cookiecutter][cookiecutter].
-  * A Java 1.8 compatible SDK.
-  * [Apache Maven](https://maven.apache.org/).
+* [Cookiecutter][cookiecutter].
+* A Java 1.8 compatible SDK.
+* [Apache Maven](https://maven.apache.org/).
 
 Other than that, you will also need writing access to the [QBiC Software GitHub organization](https://github.com/qbicsoftware).
 
-## How to use this template?
+## How to use this template
 
-### STEP 1 - Generating a basic QBiC Portlet.
+### STEP 1 - Generating a basic QBiC Portlet
+
 Open a terminal and execute the following command:
 
 ```sh
@@ -28,7 +31,7 @@ author [Winnie the Pooh]: Homer Simpson
 email [pooh@qbic.uni-tuebingen.de]: simpson@burns.com
 portlet_id [helloworld-portlet]: donut-portlet
 display_name [HelloWorld Portlet]: Donut Portlet
-version [0.0.1-SNAPSHOT]: 
+version [0.0.1-SNAPSHOT]:
 short_description [Simple portlet]: Mmm donuts
 main_ui [QBiCPortletUI]: DonutPortletUI
 copyright_holder [QBiC]: Mr. Burns
@@ -36,12 +39,11 @@ copyright_holder [QBiC]: Mr. Burns
 
 The values shown between brackets are the defaults. To use the default value (as Homer did here for `version`), simply press `ENTER` without entering any other text. Default values are provided in the `cookiecutter.json` file.
 
-Without getting too much into details, cookiecutter will generate a folder which you can immediately use for portlet development. References to cookiecutter variables (e.g., ``{{ cookiecutter.version }}``) will be properly substituted. The name of the generated folder is determined by the value of the ``{{ cookiecutter.portlet_id }}`` variable (i.e., ``donut-portlet`` in our example). This will be generated on the same folder on which you executed the ``cookiecutter`` command. 
+Without getting too much into details, cookiecutter will generate a folder which you can immediately use for portlet development. References to cookiecutter variables (e.g., ``{{ cookiecutter.version }}``) will be properly substituted. The name of the generated folder is determined by the value of the ``{{ cookiecutter.portlet_id }}`` variable (i.e., ``donut-portlet`` in our example). This will be generated on the same folder on which you executed the ``cookiecutter`` command.
 
 Cookiecutter will create a folder folder with the following structure and contents:
 
-```
-donut-portlet/
+```donut-portlet/
 ├── CODE_OF_CONDUCT.md
 ├── .gitignore
 ├── LICENSE
@@ -74,12 +76,14 @@ donut-portlet/
                 └── web.xml
 ```
 
-### STEP 2 - Test your portlet.
+### STEP 2 - Test your portlet
+
 Go to the generated folder (i.e., `donut-portlet` in our case) and execute the following _maven_ command in a terminal (or using your IDE of choice), like so:
 
 ```sh
 mvn jetty:run
 ```
+
 You should see an output similar to:
 
 ```sh
@@ -88,9 +92,10 @@ You should see an output similar to:
 [INFO] Started Jetty Server
 ```
 
-Direct your browser to http://localhost:8080. If everything went fine, you will see a button, and after clicking it, it should display some information about your portlet. So far so good, congratulations!
+Direct your browser to [localhost:8080](http://localhost:8080). If everything went fine, you will see a button, and after clicking it, it should display some information about your portlet. So far so good, congratulations!
 
-### STEP 3 - Create a new repository for your new portlet.
+### STEP 3 - Create a new repository for your new portlet
+
 At this point you have a simple QBiC portlet with all the required dependencies. You now need to create a remote repository for it, so it's available for everyone. Follow [this guide](https://help.github.com/articles/create-a-repo/) to create a remote repository on GitHub. For this example, we will still use `donut-portlet` as the name of our repository.
 
 Once your remote repository has been created, make sure you are in the generated folder (i.e., `donut-portlet`) and execute the following commands:
@@ -101,9 +106,8 @@ git add .
 git commit -m "Initial commit after template configuration"
 git remote add origin https://github.com/qbicsoftware/donut-portlet
 git push origin master
-``` 
+```
 
 You can start using your repository containing your brand new portlet.
-
 
 [cookiecutter]: https://cookiecutter.readthedocs.io
