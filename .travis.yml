@@ -1,9 +1,3 @@
 language: java
-notifications:
-  email:
-    on_success: never
-    on_failure: never 
   slack:
     secure: Yu0zhliT3tT02vSAUwZWdbZkVf9U+T8A7RuGrsckW1JVkoeUePlcf11uko+NW7O7/1NL3aCb68EF3AaObZ6hO6sMuJozfnIa8xcvLM1IOeEHfcY3sWYYkYvMITkrSPUdtvX8dYc1uYXHcEl/WI49vjqi+cHlNYNOdTtVFXal8YrxkjIHrHv90PAyth8Swft8BHDNlqyxdi+yKHNgywOtbMR5GuSI/8O2xmyxTE3KJgxiMxb0XhfwkjGEBJIu+u7LpZVERfL2TNJ7gzyeSQadGzG+FtPp70/zXPByo1vHTZHp3iyYmYBtonl9By/uZ9yjVuXxD/L4+sjARaKbLjwELD8ErLdjMj+RuY30JTW2VExHpot0mCR5kOBawZCmGdvpRyMx38RB4DN976ulRRMGOW6Eq4cASrV0Ov4efmTbPXdfvLxLPL+GURkKC0oYN9KawbnZUzZMqUjG0fRRB7AUfJcLYxjwtBqQugl+Z61jjeLNneTEeNFd6NNZCoqcy8H4wkovv1VBo8xM9w7mQa5WBn7Z8TXbErxVhU7GTKhtNyqLElUMJc1lpXIonRge4NO645y/Ndf4Klm0NjBWp9caJQIBoM9cS6x2aKmw1RFDWGJaGyJBbgoF2Mi5WIphgnE2jStqMx60GXWWbncBLdocMSAXUDuCSScDHFVG93Dz9a8=
-    on_success: never
-    on_failure: always
