@@ -8,7 +8,7 @@ Whenever you start a new portlet in QBiC, you can use this template to generate 
 
 You will need the following tools:
 
-* [Cookiecutter][cookiecutter].
+* [Cookiecutter][cookiecutter], version 1.5 or more recent.
 * A Java 1.8 compatible SDK.
 * [Apache Maven](https://maven.apache.org/).
 
