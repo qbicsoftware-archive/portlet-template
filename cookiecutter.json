@@ -5,6 +5,6 @@
     "display_name": "HelloWorld Portlet",
     "version": "0.0.1-SNAPSHOT",
     "short_description": "Simple 'Hello World' QBiC Vaadin portlet.",
-    "main_ui": "QBiCPortletUI",
+    "main_ui": "HelloWorldPortletUI",
     "copyright_holder": "QBiC"
 }
