@@ -15,7 +15,7 @@
 
 		<init-param>
 			<name>UI</name>
-			<value>life.qbic.{{ cookiecutter.main_ui }}</value>
+			<value>life.qbic.portlet.{{ cookiecutter.main_ui }}</value>
 		</init-param>
 
 		<init-param>

@@ -40,4 +40,9 @@
   @include valo;
 
   /* Insert your theme rules here */
+  .portlet-footer {
+    font-size: 9pt;
+    text-align: right;
+    padding-top: 50px;
+  }
 }
