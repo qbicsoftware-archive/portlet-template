@@ -49,6 +49,7 @@ public class {{ cookiecutter.main_ui }} extends QBiCPortletUI {
         {% for key, value in cookiecutter.items() %}
         builder.append("\"{{ key }}\": \"{{ value }}\"<br>");
         {% endfor %}
+        builder.append("<br>You can now start developing. Start by modifying the generated src/main/java/life/qbic/portlet/{{ cookiecutter.main_ui}}.java file.");
         // --
         
         final Label label = new Label(builder.toString(), ContentMode.HTML);
