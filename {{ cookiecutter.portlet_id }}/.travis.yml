@@ -1,0 +1,11 @@
+# run 'travis encrypt "<account>:<token>" --add notifications.slack.rooms' on this generated folder to enable notifications
+language: java
+sudo: false
+notifications:
+  email:
+    on_success: never
+    on_failure: never
+  slack:
+    on_success: never
+    on_failure: always
+script: mvn clean test deploy

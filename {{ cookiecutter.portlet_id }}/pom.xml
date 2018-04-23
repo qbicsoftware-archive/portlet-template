@@ -108,7 +108,6 @@
 		</dependency>
 
 		<!-- Liferay dependencies -->
-
 		<dependency>
 			<groupId>javax.portlet</groupId>
 			<artifactId>portlet-api</artifactId>
@@ -161,6 +160,13 @@
 			<artifactId>mariadb-java-client</artifactId>
 			<version>2.0.2</version>
 		</dependency>
+
+		<dependency>
+      		<groupId>junit</groupId>
+      		<artifactId>junit</artifactId>
+      		<version>4.11</version>
+			<scope>test</scope>
+    	</dependency>
 	</dependencies>
 
 
