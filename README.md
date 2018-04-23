@@ -1,5 +1,7 @@
 # template_qbicportlet
 
+![Build status](https://travis-ci.org/qbicsoftware/template_qbicportlet.svg?branch=master)
+
 This repository provides a [cookiecutter template][cookiecutter] for a basic QBiC Liferay Vaadin Portlet based on Maven.
 
 Whenever you start a new portlet in QBiC, you can use this template to generate a folder containing all of the needed files for portlet development.
