@@ -20,7 +20,7 @@ import com.vaadin.ui.VerticalLayout;
  */
 @Theme("mytheme")
 @SuppressWarnings("serial")
-@Widgetset("life.qbic.AppWidgetSet")
+@Widgetset("life.qbic.portlet.AppWidgetSet")
 public abstract class QBiCPortletUI extends UI {
 
     private final static Log LOG = LogFactoryUtil.getLog(QBiCPortletUI.class);
@@ -30,6 +30,10 @@ public abstract class QBiCPortletUI extends UI {
 
     // load values from portlet.properties
     static {
+        if (QBiCPortletUI.class.getClass() != Object.class.getClass()) {
+            QBiCPortletUI.class.isAssignableFrom(Object.class);
+        }
+
         final Properties portletProperties = new Properties();
         try {
             portletProperties.load(QBiCPortletUI.class.getClassLoader().getResourceAsStream("portlet.properties"));
