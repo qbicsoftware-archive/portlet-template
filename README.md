@@ -13,6 +13,7 @@ You will need the following tools:
 * [Cookiecutter][cookiecutter], version 1.5 or more recent.
 * A Java 1.8 compatible SDK.
 * [Apache Maven](https://maven.apache.org/).
+* [Travis CI Client][travis-console].
 
 Other than that, you will also need writing access to the [QBiC Software GitHub organization](https://github.com/qbicsoftware).
 
@@ -33,13 +34,13 @@ author [Winnie the Pooh]: Homer Simpson
 email [pooh@qbic.uni-tuebingen.de]: simpson@burns.com
 portlet_id [helloworld-portlet]: donut-portlet
 display_name [HelloWorld Portlet]: Donut Portlet
-version [0.0.1-SNAPSHOT]:
+version [0.0.1-beta]:
 short_description [Simple portlet]: Mmm donuts
 main_ui [QBiCPortletUI]: DonutPortletUI
 copyright_holder [QBiC]: Mr. Burns
 ```
 
-The values shown between brackets are the defaults. To use the default value (as Homer did here for `version`), simply press `ENTER` without entering any other text. Default values are provided in the `cookiecutter.json` file.
+The values shown between brackets are the defaults. To use the default value (as Homer did here for `version`), simply press `ENTER` without entering any other text. Default values are provided in the `cookiecutter.json` file. In any case, make sure to consult our naming and versioning conventions guide.
 
 Without getting too much into details, cookiecutter will generate a folder which you can immediately use for portlet development. References to cookiecutter variables (e.g., ``{{ cookiecutter.version }}``) will be properly substituted. The name of the generated folder is determined by the value of the ``{{ cookiecutter.portlet_id }}`` variable (i.e., ``donut-portlet`` in our example). This will be generated on the same folder on which you executed the ``cookiecutter`` command.
 
@@ -47,6 +48,8 @@ Cookiecutter will create a folder folder with the following structure and conten
 
 ```sh
 donut-portlet/
+├── .gitignore
+├── .travis.yml
 ├── CODE_OF_CONDUCT.md
 ├── LICENSE
 ├── pom.xml
@@ -63,7 +66,8 @@ donut-portlet/
     │   ├── resources
     │   │   ├── life
     │   │   │   └── qbic
-    │   │   │       └── AppWidgetSet.gwt.xml
+    │   │   │       └── portlet
+    │   │   │           └── AppWidgetSet.gwt.xml
     │   │   └── portlet.properties
     │   └── webapp
     │       ├── VAADIN
@@ -88,9 +92,9 @@ donut-portlet/
 
 ```
 
-### II - Write jUnit tests
+### II - Write jUnit tests, check code coverage
 
-The generated folder already contains a simple jUnit test (i.e., in `src/test/java/life/qbic/portlet/DonutPortletUITest.java`). Writing code that tests your code is an important part of the development lifecycle. The idea is to be able to catch bugs before they are released. If at least one unit test fails after changing the code, it means that either the requirements changed (and you haven't updated the test) or your code is broken (and you have to fix it). This happens before your code is released, so you are improving the quality of the code you are delivering.
+The generated folder already contains a simple [jUnit](junit) test (i.e., in `src/test/java/life/qbic/portlet/DonutPortletUITest.java`). Writing code that tests your code is an important part of the development lifecycle. The idea is to be able to catch bugs before they are released. If at least one unit test fails after changing the code, it means that either the requirements changed (and you haven't updated the test) or your code is broken (and you have to fix it). This happens before your code is released, so you are improving the quality of the code you are delivering.
 
 As a general guideline, try to code the _logic_ of your portlet independent of the user interface so you can easily write code that tests your portlet.
 
@@ -100,9 +104,15 @@ Write your tests on the `src/test/java/life/qbic/` folder. To locally run the un
 mvn test
 ```
 
-### III - Deploy your portlet locally
+A "side effect" of unitary testing is that you are also preparing your project for code coverage. Code coverage, as its name implies, is a metric that quickly lets you know how much of your code you are testing. If your code coverage is 20% it means that (overly simplified) only one out of five lines of code you've written are being tested. To generate a code coverage report, simply execute the following maven command:
 
-Go to the generated folder (i.e., `donut-portlet` in our case) and execute the following _maven_ command in a terminal (or using your IDE of choice), like so:
+```sh
+mvn cobertura:cobertura
+```
+
+### III - Test your portlet locally
+
+Go to the generated folder (i.e., `donut-portlet` in our case) and execute the following maven command in a terminal (or using your IDE of choice), like so:
 
 ```sh
 mvn jetty:run
@@ -118,7 +128,7 @@ You should see an output similar to:
 
 Direct your browser to [localhost:8080](http://localhost:8080). If everything went fine, you will see a button, and after clicking it, it should display some information about your portlet. So far so good, congratulations!
 
-### IV - Create a new repository for your new portlet
+### IV - Create a new GitHub repository for your new portlet
 
 At this point you have a simple QBiC portlet with all the required dependencies. You now need to create a remote repository for it, so it's available for everyone. Follow [this guide](https://help.github.com/articles/create-a-repo/) to create a remote repository on GitHub. For this example, we will still use `donut-portlet` as the name of our repository.
 
@@ -126,11 +136,30 @@ Still on the GitHub website, go to your repository (i.e., [github.com/qbicsoftwa
 
 ### V - Enable builds on Travis CI
 
-You already integrated your GitHub repository with Travis CI, but you still need to activate your project in Travis CI. Navigate to [QBiC's Travis CI website][travis-qbic] and log-in. Look for your repository by name in the _Filter repositories_ field. If you don't find it, you might need to synchronize your Travis CI account (look for the _Sync account_ button on the upper-right side). Activate your repository by "flicking" the repository switch on.
+The generated `donut-portlet` folder contains a `.travis.yml` file that will help you integrate your GitHub repository with [Travis CI][travis], our continuous integration service. Broadly speaking, everytime you _push_ a change into your GitHub repository, [Travis CI][travis] will download the code from your repository, compile it, run the unit tests and generate a code coverage report. 
 
-### VI - Pushing your first version
+You already integrated your GitHub repository with Travis CI while creating your new GitHub repository. However, you still need to activate your project in Travis CI. Navigate to [QBiC's Travis CI website][travis-qbic] and log-in. Look for your repository by name in the _Filter repositories_ field. If you don't find it, you might need to synchronize your Travis CI account (look for the _Sync account_ button on the upper-right side). Activate your repository by "flicking" the repository switch on.
 
-Once your remote repository has been created, you have added the _Travis CI_ service and enabled your repository in [QBiC's Travis CI website][travis-qbic], go back to your terminal window and make sure you are in the generated folder (i.e., `donut-portlet`). Execute the following commands:
+### VI - Deploying your project as a Maven artifact
+
+Maven defines its own _build cycle_ and in this context, _deploying_ a Maven artifact means to make a file available in a repository. Do not confuse the concepts of a GitHub repository with a Maven repository, because they serve very different purposes. A Maven repository contains binary files that can be shared among all people having access to that repository.
+
+In order to make your Maven artifacts available, you will need to deploy them. Maven already contains a _goal_ for this, so there's not much you actually need to do. Plus, since we are using [Travis CI][travis] to compile and build our code, we might as well instruct it to deploy Maven artifacts for us. In fact, this has already been done for you and you only need to execute a few commands to enable automatic deployment of your artifacts.
+
+Even though our Maven repository is visible to everyone publicly, it is password-protected. You will need to modify your `.travis.yml` file to add the encrypted username and password of our Maven repository, for this, we will use the [Travis CI console][travis-console].
+
+In your local GitHub repository directory (i.e., `donut-portlet`) run:
+
+```sh
+travis encrypt MAVEN_REPO_USERNAME=<username> --add env.matrix
+travis encrypt MAVEN_REPO_PASSWORD=<password> --add env.matrix
+```
+
+Ask around for the proper values of `username` and `password`. Encryption and decryption keys in Travis CI are bound to their GitHub repository, so you cannot simply copy them from other places.
+
+### VII - Pushing your first version
+
+In your local GitHub repository directory (i.e., `donut-portlet`) run the following commands:
 
 ```sh
 git init
@@ -140,14 +169,20 @@ git remote add origin https://github.com/qbicsoftware/donut-portlet
 git push origin master
 ```
 
-You can now start using your repository containing your brand new portlet.
+Of course, you must replace `donut-portlet` with the real name of your repository. You can now start using your repository containing your brand new portlet.
 
-### VII - Getting notifications from Travis CI (optional)
+### VIII - Getting slack notifications from Travis CI (optional)
 
-The generated `donut-portlet` folder contains a `.travis.yml` file that will help you integrate your GitHub repository with [Travis CI][travis], our continuous integration service. Broadly speaking, everytime you _push_ a change into your GitHub repository, [Travis CI][travis] will download the code from your repository, will compile it and test it (i.e., it will run your unit tests). If everything goes fine, [Travis CI][travis] will also deploy your portlet as a library in our public maven repository and on our test servers.
+You can configure the `.travis.yml` file to tell Travis to send slack notifications. In your GitHub local repository folder execute:
 
-This has been done for you. You can configure the `.travis.yml` file so 
+```sh
+travis encrypt "<your GitHub Account>:<token>" --add notifications.slack.rooms
+```
+
+Where `<token>` can be obtained by clicking on the "Edit configuration" icon (it looks like a pencil) [in this page](https://qbictalk.slack.com/apps/A0F81FP4N-travis-ci).
 
 [cookiecutter]: https://cookiecutter.readthedocs.io
+[junit]: https://junit.org
 [travis]: https://travis-ci.org/
 [travis-qbic]: https://travis-ci.org/profile/qbicsoftware
+[travis-console]: https://github.com/travis-ci/travis.rb

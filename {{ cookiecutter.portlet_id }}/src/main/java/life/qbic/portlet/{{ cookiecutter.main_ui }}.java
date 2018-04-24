@@ -22,7 +22,7 @@ import life.qbic.portal.liferayandvaadinhelpers.main.LiferayAndVaadinUtils;
 
 @Theme("mytheme")
 @SuppressWarnings("serial")
-@Widgetset("life.qbic.AppWidgetSet")
+@Widgetset("life.qbic.portlet.AppWidgetSet")
 public class {{ cookiecutter.main_ui }} extends QBiCPortletUI {
 
     private final static Log LOG = LogFactoryUtil.getLog({{ cookiecutter.main_ui }}.class);

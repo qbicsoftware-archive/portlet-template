@@ -1,4 +1,3 @@
-# run 'travis encrypt "<account>:<token>" --add notifications.slack.rooms' on this generated folder to enable notifications
 language: java
 sudo: false
 notifications:
@@ -14,7 +13,7 @@ branches:
     - testing
     - development
 script: 
-  - mvn clean test deploy
-  - mvn cobertura:cobertura
+  - mvn clean cobertura:cobertura
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - mvn --settings .travis.settings.xml deploy
