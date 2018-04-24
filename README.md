@@ -1,6 +1,6 @@
 # template_qbicportlet
 
-[![Build status](https://travis-ci.org/qbicsoftware/template_qbicportlet.svg?branch=master)][![codecov.io](https://codecov.io/gh/codecov/qbicsoftware/template_qbicportlet/branch/master/graphs/badge.svg)](https://codecov.io/gh/codecov/qbicsoftware/template_qbicportlet/branch/master)
+[![Build Status](https://travis-ci.org/qbicsoftware/template_qbicportlet.svg?branch=master)](https://travis-ci.org/qbicsoftware/template_qbicportlet)[![Code Coverage]( https://codecov.io/gh/qbicsoftware/template_qbicportlet/branch/master/graph/badge.svg)](https://codecov.io/gh/qbicsoftware/template_qbicportlet)
 
 This repository provides a [cookiecutter template][cookiecutter] for a basic QBiC Liferay Vaadin Portlet based on Maven.
 
