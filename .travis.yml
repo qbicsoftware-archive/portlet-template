@@ -20,8 +20,8 @@ branches:
 install: 
   - sudo apt-get -qq update
   - sudo apt-get install maven
-  - pip install --user cookiecutter
-  - pip install --user codecov
+  - pip install cookiecutter
+  - pip install codecov
 script:
   # we override the portlet_id variable; the tests in (test_template.py) depend on this value, so be careful when you change it
   - cookiecutter --no-input . portlet_id=template-test && pytest && cd template-test && mvn test
