@@ -18,7 +18,7 @@ branches:
     - testing
     - development
 script: 
-  - mvn --settings .travis.settings.xml clean deploy
+  - mvn --settings .travis.settings.xml clean cobertura:cobertura deploy
 after_success:
-  - mvn cobertura:cobertura && bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash)
   - mvn site
