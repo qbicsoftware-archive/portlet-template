@@ -32,7 +32,7 @@ author [Winnie the Pooh]: Homer Simpson
 email [pooh@qbic.uni-tuebingen.de]: simpson@burns.com
 portlet_id [helloworld-portlet]: donut-portlet
 display_name [HelloWorld Portlet]: Donut Portlet
-version [0.0.1-beta]:
+version [0.0.1-SNAPSHOT]:
 short_description [Simple portlet]: Mmm donuts
 main_ui [QBiCPortletUI]: DonutPortletUI
 copyright_holder [QBiC]: Mr. Burns
