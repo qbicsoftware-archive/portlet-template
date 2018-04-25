@@ -1,4 +1,4 @@
-# template_qbicportlet
+# Template for QBiC Portlets
 
 [![Build Status](https://travis-ci.org/qbicsoftware/template_qbicportlet.svg?branch=master)](https://travis-ci.org/qbicsoftware/template_qbicportlet)[![Code Coverage]( https://codecov.io/gh/qbicsoftware/template_qbicportlet/branch/master/graph/badge.svg)](https://codecov.io/gh/qbicsoftware/template_qbicportlet)
 
