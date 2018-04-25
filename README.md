@@ -120,7 +120,7 @@ Direct your browser to [localhost:8080](http://localhost:8080). If everything we
 
 ### IV - Create a new GitHub repository for your new portlet
 
-You now have a simple QBiC portlet with all the required dependencies. You still need to create a remote repository for it, though, so it's available for everyone. Follow [this guide](https://help.github.com/articles/create-a-repo/) to create a repository on GitHub. For this example, we will still use `donut-portlet` as the name of our repository.
+You now have a simple QBiC portlet with all the required dependencies. You still need to create a remote repository for it, though, so it's available for everyone. Follow [this guide](https://help.github.com/articles/create-a-repo/) to create a repository on GitHub. For this example, we will still use `donut-portlet` as the name of our repository. You need to create your GitHub repository under the [QBiC's GitHub organization](https://github.com/qbicsoftware).
 
 Navigate to your new repository's website (i.e., [github.com/qbicsoftware/donut-portlet][https://github.com/qbicsoftware/donut-portlet]) and click on _Settings_. On the left side, click on _Integrations & Services_ and add the _Travis CI_ service. Leave all fields as they are and click on the _Add Service_ button.
 
