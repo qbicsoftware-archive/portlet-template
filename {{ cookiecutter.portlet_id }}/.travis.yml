@@ -1,4 +1,10 @@
 language: java
+jdk:
+  - oraclejdk8
+  - openjdk8
+cache:
+  directories:
+    - "$HOME/.m2/repository"
 sudo: false
 notifications:
   email:
@@ -13,7 +19,7 @@ branches:
     - testing
     - development
 script: 
-  - mvn clean cobertura:cobertura
+  - mvn --settings .travis.settings.xml clean deploy
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
-  - mvn --settings .travis.settings.xml deploy
+  - mvn cobertura:cobertura && bash <(curl -s https://codecov.io/bash)
+  - mvn site

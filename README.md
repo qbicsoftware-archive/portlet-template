@@ -2,14 +2,13 @@
 
 [![Build Status](https://travis-ci.org/qbicsoftware/template_qbicportlet.svg?branch=master)](https://travis-ci.org/qbicsoftware/template_qbicportlet)[![Code Coverage]( https://codecov.io/gh/qbicsoftware/template_qbicportlet/branch/master/graph/badge.svg)](https://codecov.io/gh/qbicsoftware/template_qbicportlet)
 
-This repository provides a [cookiecutter template][cookiecutter] for a basic QBiC Liferay Vaadin Portlet based on Maven.
-
-Whenever you start a new portlet in QBiC, you can use this template to generate a folder containing all of the needed files for portlet development.
+There is a lot of boilerplate code associated to building Vaadin portlets, so it makes sense to automate their creation. This repository provides a [cookiecutter template][cookiecutter] for a basic QBiC Liferay Vaadin Portlet based on Maven. Whenever you start a new Vaadin portlet in QBiC, you can use this template to generate a folder containing all of the needed files for development.
 
 ## Requirements
 
 You will need the following tools:
 
+* Python, version 2.7 or 3.6.
 * [Cookiecutter][cookiecutter], version 1.5 or more recent.
 * A Java 1.8 compatible SDK.
 * [Apache Maven](https://maven.apache.org/).
@@ -23,13 +22,13 @@ Other than that, you will also need writing access to the [QBiC Software GitHub 
 
 Open a terminal and execute the following command:
 
-```sh
+```bash
 cookiecutter https://github.com/qbicsoftware/template_qbicportlet
 ```
 
 You will first notice that you are prompted to enter some values, as seen here:
 
-```sh
+```bash
 author [Winnie the Pooh]: Homer Simpson
 email [pooh@qbic.uni-tuebingen.de]: simpson@burns.com
 portlet_id [helloworld-portlet]: donut-portlet
@@ -46,7 +45,7 @@ Without getting too much into details, cookiecutter will generate a folder which
 
 Cookiecutter will create a folder folder with the following structure and contents:
 
-```sh
+```bash
 donut-portlet/
 ├── .gitignore
 ├── .travis.yml
@@ -100,13 +99,13 @@ As a general guideline, try to code the _logic_ of your portlet independent of t
 
 Write your tests on the `src/test/java/life/qbic/` folder. To locally run the unit tests, use the following maven command:
 
-```sh
-mvn test
+```bash
+mvn cobertura:cobertura
 ```
 
 A "side effect" of unitary testing is that you are also preparing your project for code coverage. Code coverage, as its name implies, is a metric that quickly lets you know how much of your code you are testing. If your code coverage is 20% it means that (overly simplified) only one out of five lines of code you've written are being tested. To generate a code coverage report, simply execute the following maven command:
 
-```sh
+```bash
 mvn cobertura:cobertura
 ```
 
@@ -114,13 +113,13 @@ mvn cobertura:cobertura
 
 Go to the generated folder (i.e., `donut-portlet` in our case) and execute the following maven command in a terminal (or using your IDE of choice), like so:
 
-```sh
+```bash
 mvn jetty:run
 ```
 
 You should see an output similar to:
 
-```sh
+```bash
 [INFO] Started ServerConnector@67c06a9e{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
 [INFO] Started @30116ms
 [INFO] Started Jetty Server
@@ -150,7 +149,7 @@ Even though our Maven repository is visible to everyone publicly, it is password
 
 In your local GitHub repository directory (i.e., `donut-portlet`) run:
 
-```sh
+```bash
 travis encrypt MAVEN_REPO_USERNAME=<username> --add env.matrix
 travis encrypt MAVEN_REPO_PASSWORD=<password> --add env.matrix
 ```
@@ -161,7 +160,7 @@ Ask around for the proper values of `username` and `password`. Encryption and de
 
 In your local GitHub repository directory (i.e., `donut-portlet`) run the following commands:
 
-```sh
+```bash
 git init
 git add .
 git commit -m "Initial commit after template configuration"
@@ -175,7 +174,7 @@ Of course, you must replace `donut-portlet` with the real name of your repositor
 
 You can configure the `.travis.yml` file to tell Travis to send slack notifications. In your GitHub local repository folder execute:
 
-```sh
+```bash
 travis encrypt "<your GitHub Account>:<token>" --add notifications.slack.rooms
 ```
 
