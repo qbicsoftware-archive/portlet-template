@@ -133,11 +133,11 @@ The generated `donut-portlet` folder contains a `.travis.yml` file that will hel
 Even though our Maven repository is visible to everyone publicly, it is password-protected. You will need to modify your `.travis.yml` file to add the encrypted username and password of our Maven repository. In your local GitHub repository directory (i.e., `donut-portlet`) run:
 
 ```bash
-travis encrypt MAVEN_REPO_USERNAME=<username> --add env.matrix
-travis encrypt MAVEN_REPO_PASSWORD=<password> --add env.matrix
+travis encrypt "MAVEN_REPO_USERNAME=<username>" --add env.global
+travis encrypt "MAVEN_REPO_PASSWORD=<password>" --add env.global
 ```
 
-Ask the people who wrote this guide about the proper values of `username` and `password`. Encryption and decryption keys in Travis CI are bound to their GitHub repository, so you cannot simply copy them from other places.
+Ask the people who wrote this guide about the proper values of `<username>` and `<password>`. Encryption and decryption keys in Travis CI are bound to their GitHub repository, so you cannot simply copy them from other places.
 
 ### VII - Pushing your first version
 
