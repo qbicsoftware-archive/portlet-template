@@ -3,17 +3,19 @@ package life.qbic.portlet;
 import java.io.IOException;
 import java.util.Properties;
 
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Widgetset;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * This is the class from which all other QBiC portlets derive.
@@ -23,7 +25,8 @@ import com.vaadin.ui.VerticalLayout;
 @Widgetset("life.qbic.portlet.AppWidgetSet")
 public abstract class QBiCPortletUI extends UI {
 
-    private final static Log LOG = LogFactoryUtil.getLog(QBiCPortletUI.class);
+    private static final Logger LOG = LogManager.getLogger(QBiCPortletUI.class);
+
     // value replaced by cookiecutter
     private final static String PORTLET_REPOSITORY_URL = "http://github.com/qbicsoftware/{{ cookiecutter.portlet_id }}";
     private final static String PORTLET_VERSION;
@@ -54,7 +57,6 @@ public abstract class QBiCPortletUI extends UI {
 
         addPortletInfo(layout);
         setContent(layout);
-        
     }
 
     @Override
