@@ -126,7 +126,7 @@ Navigate to your new repository's website (i.e., [github.com/qbicsoftware/donut-
 
 ### V - Enable your GitHub repository on Travis CI
 
-The generated `donut-portlet` folder contains a `.travis.yml` file that will help you integrate your GitHub repository with [Travis CI][travis], our continuous integration service. Broadly speaking, everytime you _push_ a change into your GitHub repository, [Travis CI][travis] will download the code from your repository, compile it, run the unit tests andd generate a code coverage report. Follow [this guide](https://docs.travis-ci.com/user/getting-started/#To-get-started-with-Travis-CI) to enable your new GitHub repository in Travis CI.
+The generated `donut-portlet` folder contains a `.travis.yml` file that will help you integrate your GitHub repository with [Travis CI][travis], our continuous integration service. Broadly speaking, everytime you _push_ a change into your GitHub repository, [Travis CI][travis] will download the code from your repository, compile it, run the unit tests and generate a code coverage report. Follow [this guide](https://docs.travis-ci.com/user/getting-started/#To-get-started-with-Travis-CI) to enable your new GitHub repository in Travis CI.
 
 ### VI - Deploying your project as a Maven artifact
 
