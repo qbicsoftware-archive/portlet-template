@@ -1,6 +1,6 @@
 # Template for QBiC Portlets
 
-[![Build Status](https://travis-ci.org/qbicsoftware/template_qbicportlet.svg?branch=master)](https://travis-ci.org/qbicsoftware/template_qbicportlet)[![Code Coverage]( https://codecov.io/gh/qbicsoftware/template_qbicportlet/branch/master/graph/badge.svg)](https://codecov.io/gh/qbicsoftware/template_qbicportlet)
+[![Build Status](https://travis-ci.org/qbicsoftware/portlet-template.svg?branch=master)](https://travis-ci.org/qbicsoftware/portlet-template)[![Code Coverage]( https://codecov.io/gh/qbicsoftware/portlet-template/branch/master/graph/badge.svg)](https://codecov.io/gh/qbicsoftware/portlet-template)
 
 There is a lot of boilerplate code associated to building Vaadin portlets, so it makes sense to automate their creation. This repository provides a [cookiecutter template][cookiecutter] for a basic QBiC Liferay Vaadin Portlet based on Maven. Whenever you start a new Vaadin portlet in QBiC, you can use this template to generate a folder containing all of the needed files for development.
 
