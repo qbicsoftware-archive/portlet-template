@@ -26,6 +26,6 @@ install:
   - pip install codecov
 script:
   # we override the portlet_id variable; the tests in (test_template.py) depend on this value, so be careful when you change it
-  - cookiecutter --no-input . portlet_id=template-test && pytest --cov=./ && mvn -f template-test/pom.xml cobertura:cobertura
+  - cookiecutter --no-input . portlet_id=template-test && pytest --cov=./ && mvn -X -e --file template-test/pom.xml cobertura:cobertura
 after_success:
   - codecov
