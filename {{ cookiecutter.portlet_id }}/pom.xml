@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>life.qbic</groupId>
 		<artifactId>portlet-parent-pom</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>1.0.0</version>
 	</parent>
 	<groupId>life.qbic</groupId>
 	<artifactId>{{ cookiecutter.portlet_id }}</artifactId>
@@ -14,5 +14,22 @@
 	<name>{{ cookiecutter.display_name }}</name>
 	<packaging>war</packaging>
 
-	<!-- other dependencies needed by {{ cookiecutter.portlet_id }} -->
+    <!-- 
+		IMPORTANT 	
+		
+		Before you add a dependency, check the dependency tree to see what is available.
+
+        DO NOT add libraries that any of the parent poms already have, otherwise 
+		you will create inconsistencies across your portlet and unexpected runtime errors
+		could arise.
+      
+		You can use the following maven command to generate a dependency tree:
+
+			$ mvn dependency:tree
+
+		Check your IDE's documentation to display maven's dependency tree. 
+	-->
+	  <dependencies>
+	  </dependencies>
+	
 </project>
