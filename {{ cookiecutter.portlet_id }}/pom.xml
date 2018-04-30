@@ -8,7 +8,7 @@
 		<artifactId>portlet-parent-pom</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<groupId>life.qbic</groupId>rm 	
+	<groupId>life.qbic</groupId>
 	<artifactId>{{ cookiecutter.portlet_id }}</artifactId>
 	<version>{{ cookiecutter.version }}</version>
 	<name>{{ cookiecutter.display_name }}</name>
@@ -29,7 +29,7 @@
 			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-snapshots</url>
 		</repository>
 		<repository>
-		<releases>
+			<releases>
 				<enabled>true</enabled>
 				<updatePolicy>always</updatePolicy>
 				<checksumPolicy>fail</checksumPolicy>
