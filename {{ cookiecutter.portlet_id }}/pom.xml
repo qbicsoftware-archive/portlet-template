@@ -14,11 +14,21 @@
 	<name>{{ cookiecutter.display_name }}</name>
 	<packaging>war</packaging>
 
-    <!-- 
-		IMPORTANT 	
-		
-		Before you add a dependency, check the dependency tree to see what is available.
+	<!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
+	<repositories>
+		<repository>
+			<id>nexus-snapshots</id>
+			<name>QBiC Snapshots</name>
+			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-snapshots</url>
+		</repository>
+		<repository>
+			<id>nexus-releases</id>
+			<name>QBiC Releases</name>
+			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-releases</url>
+		</repository>
+	</repositories>
 
+    <!-- 
         DO NOT add libraries that any of the parent poms already have, otherwise 
 		you will create inconsistencies across your portlet and unexpected runtime errors
 		could arise.
