@@ -6,6 +6,7 @@ sudo: false
 cache:
   directories:
     - "$HOME/.m2/repository"
+    - "$HOME/.cache/pip"
 notifications:
   email:
     on_success: never
@@ -21,9 +22,8 @@ branches:
 install: 
   - sudo apt-get -qq update
   - sudo apt-get install maven
-  - pip install pytest pytest-cov
-  - pip install cookiecutter  
-  - pip install codecov
+  - pip install -U pip wheel
+  - pip install -r pip_requirements.txt
 script:
   # we override the portlet_id variable; the tests in (test_template.py) depend on this value, so be careful when you change it
   - cookiecutter --no-input . portlet_id=template-test && pytest --cov=./ && mvn -X -e --file template-test/pom.xml cobertura:cobertura
