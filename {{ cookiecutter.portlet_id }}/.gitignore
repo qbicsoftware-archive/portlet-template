@@ -2,6 +2,9 @@
 .classpath
 .project
 .settings/
+
+# VS Code
+.vscode
  
 # Intellij
 .idea/
