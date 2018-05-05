@@ -22,7 +22,7 @@ You will need the following:
 Execute the following command on your terminal:
 
 ```bash
-cookiecutter https://github.com/qbicsoftware/template_qbicportlet
+cookiecutter https://github.com/qbicsoftware/portlet-template
 ```
 
 You will first notice that you are prompted to enter some values, as seen here:
