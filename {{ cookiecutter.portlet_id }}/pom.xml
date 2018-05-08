@@ -12,6 +12,7 @@
 	<artifactId>{{ cookiecutter.portlet_id }}</artifactId>
 	<version>{{ cookiecutter.version }}</version>
 	<name>{{ cookiecutter.display_name }}</name>
+	<url>http://github.com/qbicsoftware/{{ cookiecutter.portlet_id }}</url>
 	<packaging>war</packaging>
 	<!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
 	<repositories>
@@ -43,15 +44,33 @@
 		</repository>
 	</repositories>
 	<!-- 
-        DO NOT add libraries that any of the parent poms already have, otherwise 
-		you will create inconsistencies across your portlet and unexpected runtime errors
-		could arise.
+		To avoid inconsistencies across projects, plase check which librares are already 
+		contained before adding new ones under <dependencies>.
       
-		You can use the following maven command to generate a dependency tree:
+		You can use the following maven command to generate a dependency tree and list all
+		maven artifacts (libraries) that are available:
 
 			$ mvn dependency:tree
 
-		Check your IDE's documentation to display maven's dependency tree. 
+		Check your IDE's documentation to display maven's dependency tree.
 	-->
-	<dependencies></dependencies>
+	<dependencies>
+		{%- if cookiecutter.use_openbis == "yes" -%}
+		<!-- OpenBIS -->
+		<dependency>
+			<groupId>life.qbic</groupId>
+			<artifactId>openbis-client-lib</artifactId>
+			<version>1.1.4-SNAPSHOT</version>
+		</dependency>
+		{%- endif -%}
+		{%- if cookiecutter.use_qbic_databases == "yes" -%}
+		<!-- Access to our custom databases (portlets use direct JDBC to access data for now),
+			 but we will create a client library that portlets will use -->
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>2.0.2</version>
+		</dependency>
+		{%- endif -%}
+	</dependencies>
 </project>
