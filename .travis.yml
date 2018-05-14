@@ -25,8 +25,8 @@ install:
   - pip install -U pip wheel
   - pip install -r pip_requirements.txt
 script:
-  # we override the portlet_id variable; the tests in (test_template.py) depend on this value, so be careful when you change it
+  # we override the artifact_id variable; the tests in (test_template.py) depend on this value, so be careful when you change it
   # we also create a portlet with both openbis and access to qbic databases
-  - cookiecutter --no-input . portlet_id=template-test use_openbis=yes use_qbic_databases=yes && pytest --cov=./ && mvn -X -e --file template-test/pom.xml --settings template-test/.travis.settings.xml cobertura:cobertura
+  - cookiecutter --no-input . artifact_id=template-test use_openbis=yes use_qbic_databases=yes && pytest --cov=./ && mvn -X -e --file template-test/pom.xml --settings template-test/.travis.settings.xml cobertura:cobertura
 after_success:
   - codecov

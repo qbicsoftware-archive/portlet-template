@@ -30,7 +30,7 @@ You will first notice that you are prompted to enter some values, as seen here:
 ```bash
 author [Winnie the Pooh]: Homer Simpson
 email [pooh@qbic.uni-tuebingen.de]: simpson@burns.com
-portlet_id [helloworld-portlet]: donut-portlet
+artifact_id [helloworld-portlet]: donut-portlet
 display_name [HelloWorld Portlet]: Donut Portlet
 version [0.0.1-SNAPSHOT]:
 short_description [Simple portlet]: Mmm donuts
@@ -40,7 +40,7 @@ copyright_holder [QBiC]: Mr. Burns
 
 The values shown between brackets are the defaults. To use the default value (as Homer did here for `version`), simply press `ENTER` without entering any other text. Default values are provided in the `cookiecutter.json` file. In any case, **make sure to consult our naming and versioning conventions guide**.
 
-Cookiecutter will generate a folder which you can use for portlet development. References to cookiecutter variables (e.g., ``{{ cookiecutter.version }}``) will be properly substituted. The name of the generated folder is determined by the value of the ``{{ cookiecutter.portlet_id }}`` variable (i.e., ``donut-portlet`` in our example). This will be generated on the same folder on which you executed the ``cookiecutter`` command:
+Cookiecutter will generate a folder which you can use for portlet development. References to cookiecutter variables (e.g., ``{{ cookiecutter.version }}``) will be properly substituted. The name of the generated folder is determined by the value of the ``{{ cookiecutter.artifact_id }}`` variable (i.e., ``donut-portlet`` in our example). This will be generated on the same folder on which you executed the ``cookiecutter`` command:
 
 ```bash
 donut-portlet/

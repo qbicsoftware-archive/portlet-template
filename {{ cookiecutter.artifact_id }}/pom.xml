@@ -9,10 +9,10 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<groupId>life.qbic</groupId>
-	<artifactId>{{ cookiecutter.portlet_id }}</artifactId>
+	<artifactId>{{ cookiecutter.artifact_id }}</artifactId>
 	<version>{{ cookiecutter.version }}</version>
 	<name>{{ cookiecutter.display_name }}</name>
-	<url>http://github.com/qbicsoftware/{{ cookiecutter.portlet_id }}</url>
+	<url>http://github.com/qbicsoftware/{{ cookiecutter.artifact_id }}</url>
 	<packaging>war</packaging>
 	<!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
 	<repositories>
@@ -55,22 +55,26 @@
 		Check your IDE's documentation to display maven's dependency tree.
 	-->
 	<dependencies>
-		{%- if cookiecutter.use_openbis == "yes" -%}
-		<!-- OpenBIS -->
+		<!-- replaces liferayandvaadinutils (version defined in parent POM) -->
+		<dependency>
+			<groupId>life.qbic</groupId>
+			<artifactId>portal-utils-lib</artifactId>
+		</dependency>
+		{%- if cookiecutter.use_openbis == "yes" -%}		
+		<!-- OpenBIS (version of openBIS client is defined in the parent POM hierarchy (/portal/pom.xml)) -->
 		<dependency>
 			<groupId>life.qbic</groupId>
 			<artifactId>openbis-client-lib</artifactId>
-			<version>1.1.4-SNAPSHOT</version>
-		</dependency>
-		{%- endif -%}
-		{%- if cookiecutter.use_qbic_databases == "yes" -%}
+		</dependency>		
+		{%- endif -%}		
+		{%- if cookiecutter.use_qbic_databases == "yes" -%}		
 		<!-- Access to our custom databases (portlets use direct JDBC to access data for now),
-			 but we will create a client library that portlets will use -->
+			 but we will create a client library that portlets will use 
+			 (version  is defined in the parent POM hierarchy (/portal/pom.xml)) -->
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>
-			<version>2.0.2</version>
 		</dependency>
-		{%- endif -%}
+		{%- endif -%}	
 	</dependencies>
 </project>
