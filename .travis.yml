@@ -20,7 +20,7 @@ branches:
     - master
     - testing
 
-script: "chmod +x .travis.sh"
+script: "./.travis.sh"
 after_success:
   - codecov
 
