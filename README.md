@@ -12,7 +12,7 @@
     - [Usage](#usage)
         - [Generating a basic QBiC Portlet](#generating-a-basic-qbic-portlet)
     - [Post "portlet-creation" tasks](#post-portlet-creation-tasks)
-        - [Write jUnit tests, check code coverage](#write-junit-tests--check-code-coverage)
+        - [Write tests, check code coverage](#write-tests--check-code-coverage)
         - [Test your portlet locally](#test-your-portlet-locally)
         - [Create a new GitHub repository for your new portlet](#create-a-new-github-repository-for-your-new-portlet)
         - [Enable your GitHub repository on Travis CI](#enable-your-github-repository-on-travis-ci)
@@ -113,24 +113,26 @@ donut-portlet/
                 └── qbic
                     └── portal
                         └── portlet
-                            └── DonutPortletUI.java
+                            └── DonutPortletUITest.java
 
 
 ```
 
 ## Post "portlet-creation" tasks
 
-### Write jUnit tests, check code coverage
+### Write tests, check code coverage
 
 The generated folder already contains a simple [jUnit](junit) test (i.e., in `src/test/java/life/qbic/portal/portlet/DonutPortletUITest.java`). Writing code that tests your code is an important part of the development lifecycle (see: https://makeameme.org/meme/Yo-dawg-I-wgn8jg).
 
 As a general guideline, try to code the _logic_ of your portlet independent of the user interface so you can easily write code that tests your portlet.
 
-Write your tests under the `src/test/` folder. To locally run the unit tests and generate a code coverage report, use the following maven command:
+Maven has been configured to execute unit tests under the `src/test` folder that match the _*Test_ name (e.g., `DonutPortletUITest`). To locally run the unit tests and generate a code coverage report, use the following maven command:
 
 ```bash
 mvn cobertura:cobertura
 ```
+
+Similarly, we have configured the Maven plug-ins to run integration tests. These tests are also under the `src/test` folder, but their names must end with _*IntegrationTest_, such as `DonutPortletUIIntegrationTest`.
 
 ### Test your portlet locally
 
