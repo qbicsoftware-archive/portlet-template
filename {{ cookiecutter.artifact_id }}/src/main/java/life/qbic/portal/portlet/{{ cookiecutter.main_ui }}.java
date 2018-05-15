@@ -55,13 +55,13 @@ public class {{ cookiecutter.main_ui }} extends QBiCPortletUI {
 
     private Layout REMOVE_THIS_METHOD_AND_DO_YOUR_OWN_THING_COMMA_PLEASE(final VaadinRequest request) {
         LOG.info("Generating content for portlet {{ cookiecutter.artifact_id }}");
-        final StringBuilder builder = new StringBuilder("<h1>This is just a sample \"sanity check\" test portlet.</h1>");
+        final StringBuilder builder = new StringBuilder("<h1><b>This is just a sample \"sanity check\" test portlet.</b></h1>");
         if (PortalUtils.isLiferayPortlet()) {
             builder.append("Hello, ").append(PortalUtils.getUser().getScreenName()).append("!<br/>");
             builder.append("This is portlet ").append(getPortletContextName(request)).append(".<br/>");
             builder.append("This portal has ").append(getPortalCountOfRegisteredUsers()).append(" registered users (according to the data returned by Liferay's API call)");            
         } else {
-            builder.append("You are currently in a local testing mode. No Liferay Portlet context found.<br/>");            
+            builder.append("You are currently in a local testing mode. No Liferay Portlet context found.");
         }        
         builder.append("<br/>You can now start developing. Start by modifying the <font face='monospace'>getPortletContent</font> method in the generated <font face='monospace'>src/main/java/life/qbic/portal/portlet/{{ cookiecutter.main_ui}}.java</font> file.<br/><br/>");
 
@@ -130,18 +130,19 @@ public class {{ cookiecutter.main_ui }} extends QBiCPortletUI {
         logControlsLayout.addComponent(logButton);
         
         final StringBuilder builder = new StringBuilder();
-        builder.append("<h2><b>Developer note #1</b></h2>Use<br/><pre>LOG.info(\"Hello {}! You have {} new notifications.\", user.getName(), newNotifications);</pre> instead of:");
+        builder.append("<h1><b>Logging best practices</b></h2>");
+        builder.append("<h2><b>Developer note #1:</b></h2>Use<br/><pre>LOG.info(\"Hello {}! You have {} new notifications.\", user.getName(), newNotifications);</pre> instead of:");
         builder.append("<pre>LOG.info(\"Hello \" + user.getName() + \"! You have \" + newNotifications + \" new notifications.\");</pre>");
-        builder.append("<h2><b>Developer note #2</b></h2>If you are logging information that depends on an expensive process, it's best practice to do something like:<br/><br/>");
-        builder.append("<font face='monospace'><p>" + 
-        "for (int i = 0; i < Integer.MAX_INTEGER; i++) {<br/>" + 
-        "&nbsp;&nbsp;if (LOG.isDebugEnabled()) {<br/>" + 
-        "&nbsp;&nbsp;&nbsp;&nbsp;<font color='#00AA00'><i>// FIXME: checkIfPrimeNaive is a method that could take between 1 ns and 7 years to complete</i></font><br/>" +
-        "&nbsp;&nbsp;&nbsp;&nbsp;LOG.debug(\"About to process {}. Is {} a prime number? Answer: {}\", i, i this.checkIfPrimeNaive(i));<br/>" + 
-        "&nbsp;&nbsp;}<br/>" + 
-        "&nbsp;&nbsp;<font color='#00AA00'><i>// we need to process the number anyway</i></font><br/>" + 
-        "&nbsp;&nbsp;this.process(i);</br>" + 
-        "}</p></font>");
+        builder.append("<h2><b>Developer note #2:</b></h2>If you are logging information that depends on an expensive process, it's best practice to do something similar to:<br/><br/>");
+        builder.append("<pre>" + 
+        "for (int i = 0; i < Integer.MAX_INTEGER; i++) {\n" + 
+        "  if (LOG.isDebugEnabled()) {\n" + 
+        "    // FIXME: checkIfPrimeNaive is a method that could take between 1 ns and 7 years to complete\n" +
+        "    LOG.debug(\"About to process {}. Is {} a prime number? Answer: {}\", i, i, this.checkIfPrimeNaive(i));\n" + 
+        "  }\n" + 
+        "  // we need to process the number anyway\n" + 
+        "  this.process(i);\n" + 
+        "}</pre>");
         final Label developerInfoLabel = new Label(builder.toString(), ContentMode.HTML);
 
         builder.setLength(0);
