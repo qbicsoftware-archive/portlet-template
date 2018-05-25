@@ -1,4 +1,5 @@
 # Template for QBiC Portlets
+**This project is no longer maintained.** Please visit: https://github.com/qbicsoftware/cookiecutter-templates-cli
 
 [![Build Status](https://travis-ci.org/qbicsoftware/portlet-template.svg?branch=master)](https://travis-ci.org/qbicsoftware/portlet-template)[![Code Coverage]( https://codecov.io/gh/qbicsoftware/portlet-template/branch/master/graph/badge.svg)](https://codecov.io/gh/qbicsoftware/portlet-template)
 
